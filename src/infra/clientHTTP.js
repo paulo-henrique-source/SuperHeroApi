@@ -3,9 +3,7 @@ import axios from 'axios'
 const Send = async (request) => {
   try {
     const { status, data } = await axios.request(request)
-    console.log(request)
 
-    console.log("Axios", data.results)
     return { status, data }
   } catch (error) {
     console.error(error)

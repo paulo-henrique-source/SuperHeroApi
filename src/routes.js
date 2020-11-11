@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom'
-import Home from './components/home'
-import Find from './components/find'
+import Home from './components/Home'
+import Find from './components/Find'
 
 
 export default function MainRoutes() {
