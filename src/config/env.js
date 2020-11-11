@@ -1,1 +1,2 @@
-export const superHeroKey = 3200062643436158
+export const superHeroKey = process.env.REACT_APP_SUPER_HERO_KEY
+

@@ -1,7 +1,8 @@
-import Send from './clientHTTP'
+import Send from '../infra/clientHTTP'
 import { superHeroKey } from '../config/env'
 
-export const findByName = async (name = 'batman') => {
+export const findByName = async (name) => {
+    console.log(superHeroKey)
     const request = {
         url: `https://cors-anywhere.herokuapp.com/https://superheroapi.com/api/${superHeroKey}/search/${name}`,
         method: 'GET'
