@@ -7,8 +7,8 @@ import Find from './components/Find'
 export default function MainRoutes() {
     return (
         <Routes>
-            <Route path="/" element={<Home />}/>
-            <Route path="/search" element={<Find />}/>
+            <Route path="/" element={<Home />} />
+            <Route path="/search" element={<Find />} />
         </Routes>
     )
 }

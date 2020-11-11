@@ -14,7 +14,7 @@ export default () => {
                     <div className="featured--name">Become a Super Hero</div>
                 </div>
             </div>
-       
+
         </section>
     )
 }

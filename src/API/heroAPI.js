@@ -13,5 +13,3 @@ export const findByName = async (name) => {
         return data.results
     }
 }
-
-

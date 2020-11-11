@@ -8,7 +8,6 @@ import Header from '../Header'
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore'
 import NavigateNextIcon from '@material-ui/icons/NavigateNext'
 
-
 function Find() {
     const [hero, setHero] = useState(false);
     const { search } = useLocation()
@@ -17,7 +16,6 @@ function Find() {
     const [blackHeader, setblackHeader] = useState(false);
     const [scrollX, setScrollX] = useState(0);
     const [listLength, setlistLength] = useState(0);
-
 
     const handleLeftArrow = () => {
         let x = scrollX + Math.round(window.innerWidth / 2);
@@ -82,21 +80,19 @@ function Find() {
                             icon: 'info',
                             title: 'More Info',
                             html: '<ul className="listAll">' +
-                                '<label id="swaat">Name: ' + hero[i]['name'] + '</label>' +  '<br/>' +   
-                                '<label className="swal-label">Power: ' + hero[i]['powerstats']['intelligence'] + '</label>' + '<br/>' + 
-                                '<label className="swal-label">Work: ' + hero[i]['work']['base'] + '</label>' + '<br/>' + 
-                                '<label className="swal-label">Appearance: ' + hero[i]['appearance']['gender'] + '</label>' + '<br/>' + 
-                                '<label className="swal-label">Biography: ' + hero[i]['biography']['full-name'] + '</label>' + '<br/>' + 
-                                '<label className="swal-label">Connections: ' + hero[i]['connections']['group-affiliation'] + '</label> ' + '<br/>' + 
+                                '<label id="swaat">Name: ' + hero[i]['name'] + '</label>' + '<br/>' +
+                                '<label className="swal-label">Power: ' + hero[i]['powerstats']['intelligence'] + '</label>' + '<br/>' +
+                                '<label className="swal-label">Work: ' + hero[i]['work']['base'] + '</label>' + '<br/>' +
+                                '<label className="swal-label">Appearance: ' + hero[i]['appearance']['gender'] + '</label>' + '<br/>' +
+                                '<label className="swal-label">Biography: ' + hero[i]['biography']['full-name'] + '</label>' + '<br/>' +
+                                '<label className="swal-label">Connections: ' + hero[i]['connections']['group-affiliation'] + '</label> ' + '<br/>' +
                                 '</ul>'
                         })
                     }} />
                 </div>
             )
-
             return headerHeroes
         })
-
         return headerHeroes
     }
 
@@ -142,4 +138,3 @@ function Find() {
 }
 
 export default Find
-

@@ -10,5 +10,4 @@ const Send = async (request) => {
   }
 }
 
-
 export default Send;
