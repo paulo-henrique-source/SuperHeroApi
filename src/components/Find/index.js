@@ -38,6 +38,8 @@ function Find() {
 
         const data = await findByName(q)
 
+
+
         if (data !== undefined) {
             setHero(data)
             setlistLength(Object.keys(data).length)
@@ -60,7 +62,10 @@ function Find() {
         }
 
         window.addEventListener('scroll', scrollListener);
-
+        if (hero != [] && listLength < 3) {
+            document.getElementById('heroesArrow--left').style.display = 'none'
+            document.getElementById('heroesArrow--right').style.display = 'none'
+        }
         return () => {
             window.removeEventListener('scroll', scrollListener);
         }
@@ -74,21 +79,22 @@ function Find() {
                 <NavigateBeforeIcon style={{ fontSize: 50 }} />
             </div>
             headerHeroes.push(
-                <div className="hero_item">
-                    <img id={hero[i]['id']} src={hero[i]['image']['url']} onClick={() => {
-                        Swal.fire({
-                            icon: 'info',
-                            title: 'More Info',
-                            html: '<ul className="listAll">' +
-                                '<label id="swaat">Name: ' + hero[i]['name'] + '</label>' + '<br/>' +
-                                '<label className="swal-label">Power: ' + hero[i]['powerstats']['intelligence'] + '</label>' + '<br/>' +
-                                '<label className="swal-label">Work: ' + hero[i]['work']['base'] + '</label>' + '<br/>' +
-                                '<label className="swal-label">Appearance: ' + hero[i]['appearance']['gender'] + '</label>' + '<br/>' +
-                                '<label className="swal-label">Biography: ' + hero[i]['biography']['full-name'] + '</label>' + '<br/>' +
-                                '<label className="swal-label">Connections: ' + hero[i]['connections']['group-affiliation'] + '</label> ' + '<br/>' +
-                                '</ul>'
-                        })
-                    }} />
+                <div className="hero_item" onClick={() => {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'More Info',
+                        html: '<ul className="listAll">' +
+                            '<label id="swaat">Name: ' + hero[i]['name'] + '</label>' + '<br/>' +
+                            '<label className="swal-label">Power: ' + hero[i]['powerstats']['intelligence'] + '</label>' + '<br/>' +
+                            '<label className="swal-label">Work: ' + hero[i]['work']['base'] + '</label>' + '<br/>' +
+                            '<label className="swal-label">Appearance: ' + hero[i]['appearance']['gender'] + '</label>' + '<br/>' +
+                            '<label className="swal-label">Biography: ' + hero[i]['biography']['full-name'] + '</label>' + '<br/>' +
+                            '<label className="swal-label">Connections: ' + hero[i]['connections']['group-affiliation'] + '</label> ' + '<br/>' +
+                            '</ul>'
+                    })
+                }}>
+                    <img id={hero[i]['id']} src={hero[i]['image']['url']} />
+                    <h3 className="heroName">{hero[i]['name']}</h3>
                 </div>
             )
             return headerHeroes
@@ -97,6 +103,7 @@ function Find() {
     }
 
     if (hero != []) {
+
         return (
             <Fragment>
                 <Header black={blackHeader} />
@@ -112,13 +119,13 @@ function Find() {
                         width: (listLength + 1) * 450
                     }}>
                         <h1 className="title">Super Heroes</h1>
-                        <div className="heroesRow--left" onClick={handleLeftArrow}>
+                        <div id="heroesArrow--left" className="heroesRow--left" onClick={handleLeftArrow}>
                             <NavigateBeforeIcon style={{ fontSize: 50 }} />
                         </div>
                         <div className="hero_card" >
                             <div>{renderHeaderHeroes()}</div>
                         </div>
-                        <div className="heroesRow--right" onClick={handleRightArrow}>
+                        <div id="heroesArrow--right" className="heroesRow--right" onClick={handleRightArrow}>
                             <NavigateNextIcon style={{ fontSize: 50 }} />
                         </div>
                     </section>

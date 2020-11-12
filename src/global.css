@@ -35,7 +35,9 @@ body {
 
 .hero_item {
     display: inline-block;
-    width: 450px;
+    transform: scale(0.9);
+    transition: all ease 0.2s;
+
 }
 
 .hero_item img {
@@ -45,7 +47,7 @@ body {
     cursor: pointer;
 }
 
-.hero_item img:hover {
+.hero_item:hover  {
     transform: scale(1);
 }
 
@@ -115,13 +117,11 @@ body {
 
 
 .swal2-title {
-    text-align: left !important;
     color: white;
 
 }
 
 .swal2-content {
-    text-align: left !important;
     color: white;
 
 }
@@ -154,4 +154,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.heroName {
+    text-align: center;
+    transform: scale(0.9);
+
+}
+
+.heroName:hover {
+    text-align: center;
+    cursor: pointer;
+
+}
+
+.swal2-icon.swal2-error {
+    border-color: #EE2326;
+    color:  #EE2326;
+}
+.swal2-x-mark-line-left {
+    background-color:  #EE2326 !important;
+}
+.swal2-x-mark-line-right {
+    background-color:  #EE2326 !important;
 }
