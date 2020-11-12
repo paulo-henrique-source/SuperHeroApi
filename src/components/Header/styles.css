@@ -14,7 +14,7 @@ header {
 }
 
 header.black {
-    background: #141414;
+    background: var(--third);
 }
 
 .header--logo {

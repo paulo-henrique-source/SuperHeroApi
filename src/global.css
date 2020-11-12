@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+:root {
+    --First: #EE2326;
+    --Second: #111;
+    --third: #141414;
+    --four: #2f3640;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +18,7 @@ html {
 }
 
 body {
-    background: #111;
+    background: var(--Second);
     color: #fff;
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -108,7 +115,7 @@ body {
 
 .LoadingGif {
     border: 4px solid rgba(0, 0, 0, 0.1);
-    border-left-color: #EE2326;
+    border-left-color:var(--First);
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -127,17 +134,17 @@ body {
 }
 
 .swal2-styled.swal2-confirm {
-    background-color: #EE2326;
+    background-color: var(--First);
 }
 
 
 .swal2-icon.swal2-info {
-    border-color: #EE2326;
-    color:  #EE2326;
+    border-color: var(--First);
+    color: var(--First);
 }
 
 .swal2-popup {
-    background: #111;
+    background: var(--Second);
 }
 
 .listAll {
@@ -169,13 +176,13 @@ body {
 }
 
 .swal2-icon.swal2-error {
-    border-color: #EE2326;
-    color:  #EE2326;
+    border-color: var(--First);
+    color:  var(--First);
 }
 
 .swal2-x-mark-line-left {
-    background-color:  #EE2326 !important;
+    background-color:  var(--First) !important;
 }
 .swal2-x-mark-line-right {
-    background-color:  #EE2326 !important;
+    background-color:  var(--First) !important;
 }
