@@ -39,7 +39,6 @@ function Find() {
         const data = await findByName(q)
 
 
-
         if (data !== undefined) {
             setHero(data)
             setlistLength(Object.keys(data).length)
@@ -61,17 +60,22 @@ function Find() {
             }
         }
 
-        window.addEventListener('scroll', scrollListener);
-        if (hero != [] && listLength < 3) {
-            document.getElementById('heroesArrow--left').style.display = 'none'
-            document.getElementById('heroesArrow--right').style.display = 'none'
+        if (data === undefined) {
+            return
+        } else if (Object.keys(data).length >= 4) {
+            document.getElementById('heroesArrow--left').style.display = 'flex'
+            document.getElementById('heroesArrow--right').style.display = 'flex'
         }
+
+        window.addEventListener('scroll', scrollListener);
+
         return () => {
             window.removeEventListener('scroll', scrollListener);
         }
     }, []);
 
     function renderHeaderHeroes() {
+
         let headerHeroes = [];
 
         Object.keys(hero).map((x, i) => {
@@ -103,6 +107,7 @@ function Find() {
     }
 
     if (hero != []) {
+
 
         return (
             <Fragment>
