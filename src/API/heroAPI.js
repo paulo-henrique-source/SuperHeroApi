@@ -8,7 +8,7 @@ export const findByName = async (name) => {
     }
     const { status, data } = await Send(request)
     if (status != 200) {
-        console.error("ERRO NULO")
+        console.error("Server blocked")
     } else {
         return data.results
     }
