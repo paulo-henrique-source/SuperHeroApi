@@ -28,11 +28,11 @@ const Header = ({ black }) => {
             required
             className="search-txt"
             placeholder="Search..."
-            href="!#"
+            href="#"
             onChange={(e) => setTitle(e.target.value)}
           />
           <a className="search-btn" href="!#" onClick={handleSubmit}>
-            <span href="!#">
+            <span href="#">
               <SearchIcon style={{ fontSize: 50 }} />
             </span>
           </a>

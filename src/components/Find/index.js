@@ -120,7 +120,7 @@ function Find() {
           }}
         >
           <img
-            href="!#"
+            href="#"
             id={hero[i]['id']}
             src={hero[i]['image']['url']}
             alt="dart"
