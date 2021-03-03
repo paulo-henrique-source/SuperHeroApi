@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>Como Centralizar Qualquer Coisa usando position CSS</title>
+	<style>
+		
+
+		
+		.container {
+			background: #EEE;
+			height: 80vh;
+			position: relative;
+		}
+
+		.elemento {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	</style>
+</head>
+<body>
+
+<main>
+	
+	<div class="container">
+		<div class="elemento">
+			Teste
+		</div>
+	</div>
+
+</main>
+
+</body>
+</html>

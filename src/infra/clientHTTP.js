@@ -10,4 +10,4 @@ const Send = async (request) => {
   }
 }
 
-export default Send;
+export default Send
