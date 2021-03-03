@@ -12,7 +12,7 @@ export const findByName = async (name) => {
   }
   try {
     const { status, data } = await Send(request)
-    if (status != 200) {
+    if (status !== 200) {
       console.error('Server blocked')
     } else {
       return data.results

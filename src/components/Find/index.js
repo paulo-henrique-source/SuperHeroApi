@@ -12,7 +12,7 @@ function Find() {
   const [hero, setHero] = useState(false)
   const { search } = useLocation()
   const { q } = queryString.parse(search)
-  const [featuredData, setFeatured] = useState([])
+  const [featuredData] = useState([])
   const [blackHeader, setblackHeader] = useState(false)
   const [scrollX, setScrollX] = useState(0)
   const [listLength, setlistLength] = useState(0)
@@ -34,43 +34,46 @@ function Find() {
     setScrollX(x)
   }
 
-  useEffect(async () => {
-    const data = await findByName(q)
+  useEffect(() => {
+    async function fetchMyAPI() {
+      const data = await findByName(q)
 
-    if (data !== undefined) {
-      setHero(data)
-      setlistLength(Object.keys(data).length)
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Hero not Found!',
-      }).then(function () {
-        window.location.href = `/`
-      })
-    }
-
-    const scrollListener = () => {
-      if (window.scrollY > 10) {
-        setblackHeader(true)
+      if (data !== undefined) {
+        setHero(data)
+        setlistLength(Object.keys(data).length)
       } else {
-        setblackHeader(false)
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Hero not Found!',
+        }).then(function () {
+          window.location.href = `/`
+        })
+      }
+
+      const scrollListener = () => {
+        if (window.scrollY > 10) {
+          setblackHeader(true)
+        } else {
+          setblackHeader(false)
+        }
+      }
+
+      if (data === undefined) {
+        return
+      } else if (Object.keys(data).length >= 4) {
+        document.getElementById('heroesArrow--left').style.display = 'flex'
+        document.getElementById('heroesArrow--right').style.display = 'flex'
+      }
+
+      window.addEventListener('scroll', scrollListener)
+
+      return () => {
+        window.removeEventListener('scroll', scrollListener)
       }
     }
-
-    if (data === undefined) {
-      return
-    } else if (Object.keys(data).length >= 4) {
-      document.getElementById('heroesArrow--left').style.display = 'flex'
-      document.getElementById('heroesArrow--right').style.display = 'flex'
-    }
-
-    window.addEventListener('scroll', scrollListener)
-
-    return () => {
-      window.removeEventListener('scroll', scrollListener)
-    }
-  }, [])
+    fetchMyAPI()
+  }, [q])
 
   function renderHeaderHeroes() {
     let headerHeroes = []
@@ -116,7 +119,12 @@ function Find() {
             })
           }}
         >
-          <img id={hero[i]['id']} src={hero[i]['image']['url']} />
+          <img
+            href="!#"
+            id={hero[i]['id']}
+            src={hero[i]['image']['url']}
+            alt="dart"
+          />
           <h3 className="heroName">{hero[i]['name']}</h3>
         </div>
       )
@@ -125,7 +133,7 @@ function Find() {
     return headerHeroes
   }
 
-  if (hero != []) {
+  if (hero !== []) {
     return (
       <Fragment>
         <Header black={blackHeader} />
